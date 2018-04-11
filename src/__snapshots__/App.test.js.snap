@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test App component renders correctly, matching the snapshot 1`] = `
+<div
+  className="App__App___1o-Fp"
+>
+  <header
+    className="App__Header___3mO0c"
+  >
+    <img
+      alt="logo"
+      className="App__Logo___2xoEc"
+      src="logo.svg"
+    />
+    <h1
+      className="App__Title___2x147"
+    >
+      Welcome to React
+    </h1>
+  </header>
+  <p
+    className="App__Intro___X9pKe"
+  >
+    To get started, edit 
+    <code>
+      src/App.js
+    </code>
+     and save to reload.
+  </p>
+</div>
+`;
