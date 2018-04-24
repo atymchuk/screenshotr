@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug Jest with current test file",
+      "name": "Debug Jest",
       "program": "${workspaceFolder}/scripts/test.js",
       "args": ["--runInBand"]
     }

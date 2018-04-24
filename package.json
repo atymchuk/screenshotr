@@ -37,6 +37,7 @@
     "react-dom": "^16.3.1",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
+    "svg-react-loader": "^0.4.5",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
@@ -48,17 +49,20 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "test:debug": "NODE_ENV=DEBUG yarn test",
-    "test:clear": "jest --no-cache"
+    "test:watch": "yarn run test --no-cache"
   },
   "devDependencies": {
     "babel-plugin-css-modules-transform": "^1.5.0",
+    "babel-plugin-inline-react-svg": "^0.5.2",
     "css-tree": "^1.0.0-alpha.28",
+    "jest-image-snapshot": "^2.4.0",
+    "node-sass": "^4.8.3",
+    "puppeteer": "^1.3.0",
     "react-test-renderer": "^16.3.1"
   },
   "jest": {
     "globals": {
-      "TMP_STYLES_FILE": "ALL_STYLES.json"
+      "TMP_STYLES_FILE": "public/ALL_STYLES.json"
     },
     "verbose": true,
     "collectCoverageFrom": [
@@ -67,6 +71,7 @@
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -75,9 +80,8 @@
     "testURL": "http://localhost",
     "transform": {
       "\\.js$": "<rootDir>/config/jest/jestTransform.js",
-      "^.+\\.svgo$": "<rootDir>/config/jest/svgTransform.js",
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
-      "^(?!.*\\.(js|jsx|mjs|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^.+\\.js": "<rootDir>/node_modules/babel-jest",
+      "^(?!.*\\.(js|jsx|mjs|css|json|json|svg)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"

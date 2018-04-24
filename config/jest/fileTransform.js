@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = {
   process(src, filename) {
-    console.log('file', filename);
+    console.log('processed by fileTransform.js:', filename);
     return `module.exports = ${JSON.stringify(path.basename(filename))};`;
   },
 };

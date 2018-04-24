@@ -3,12 +3,10 @@ const csstree = require('css-tree');
 const fs = require('fs');
 const mime = require('mime');
 const pkg = require('../../package.json');
-const TMP_STYLES_FILE = pkg.jest.globals.TMP_STYLES_FILE;
+const { TMP_STYLES_FILE } = pkg.jest.globals;
 
 if (!TMP_STYLES_FILE) {
-  throw new Error('Please provide a global TMP_STYLES_FILE in package.json, under the jest section');
-} else {
-  console.log(TMP_STYLES_FILE);
+  throw new Error('Please provide TMP_STYLES_FILE in package.json as a key of jest.globals');
 }
 
 module.exports = function processingCSS(data, filename) {
